@@ -1,4 +1,4 @@
-# Microprocessor-Lab-2
+# Microprocessor-2-Lab
 ## Content
 **This repository will hold Microprocessor 2 Labs**
 * Lab 1
