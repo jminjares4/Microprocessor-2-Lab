@@ -1,6 +1,6 @@
-# Lab 2
+# Lab 3
 ## Instructions
-**This repository will hold Microprocessor Lab 2**
+**This repository will hold Microprocessor Lab 3**
 * Task
 ### Note
 	**Update ReadMe**
