@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/CMakeFiles/bootloader
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/CMakeFiles/bootloader.rule
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/CMakeFiles/bootloader-complete.rule
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule

@@ -1,0 +1,9 @@
+{
+  "C_Cpp.intelliSenseEngine": "Tag Parser",
+  "files.associations": {
+    "freertos.h": "c",
+    "stdio.h": "c",
+    "sdkconfig.h": "c",
+    "esp_log.h": "c"
+  }
+}
