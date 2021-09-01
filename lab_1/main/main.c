@@ -4,13 +4,12 @@
 #include "freertos/task.h"
 #include "sdkconfig.h"
 
-static void vTaskJesus(void *pvParameters){
+static void vTask(void *pvParameters){
     int *number = (pvParameters);
     int num = *number;
     while(1){
         printf("Hello from thread: %d\n", num);
-        vTaskDelay(1000 / portTICK_RATE_MS);
-       // free(number);
+        vTaskDelay(2000 / portTICK_RATE_MS);
     }
 }
 
@@ -18,9 +17,9 @@ void app_main(void){
     const int *num1 = (int*)1;
     const int *num2 = (int*)2;
     const int *num3 = (int*)3;
-    xTaskCreate(vTaskJesus, "Task 1", 2048, (void * const)&num1, 2, NULL);
-    xTaskCreate(vTaskJesus, "Task 2", 2048, (void * const)&num2, 3, NULL);
-    xTaskCreate(vTaskJesus, "Task 3", 2048, (void * const)&num3, 4, NULL);
+    xTaskCreate(vTask, "Task 1", 2048, (void * const)&num1, 5, NULL);
+    xTaskCreate(vTask, "Task 2", 2048, (void * const)&num2, 5, NULL);
+    xTaskCreate(vTask, "Task 3", 2048, (void * const)&num3, 5, NULL);
 }
 #if 0
 static void vTask_1(void *pvParameters){
