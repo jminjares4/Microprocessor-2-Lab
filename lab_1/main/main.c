@@ -1,48 +1,56 @@
+/*
+    Author: Jesus Minjares
+            Master of Science in Computer Engineering
+    Date:   09-01-2021
+*/
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "sdkconfig.h"
+#include "esp_log.h"
 
-static void vTask(void *pvParameters){
-    int *number = (pvParameters);
-    int num = *number;
+//Macro for the tag of the esp logging
+#define TAG "TASK_LOG"
+
+//Data structure to send to the task as arguements
+typedef struct {
+    int number;
+    int delayMs;
+    char str[25];
+}Data_t;
+
+//Generic Task that will use Data_t as an arguement
+void vTask(void *pvParameters){
+    Data_t *data = (Data_t*)(pvParameters);
     while(1){
-        printf("Hello from thread: %d\n", num);
-        vTaskDelay(2000 / portTICK_RATE_MS);
+        #ifdef __ESP_LOG_H__
+            ESP_LOGI(TAG, "String: %s\t Number: %i\n", data->str, (int)data->number);
+        #else
+            printf("String: %s\t Number: %i\n", data->str, (int)data->number);
+        #endif
+        vTaskDelay(data->delayMs/ portTICK_RATE_MS);
     }
 }
-
+//Main
 void app_main(void){
-    const int *num1 = (int*)1;
-    const int *num2 = (int*)2;
-    const int *num3 = (int*)3;
-    xTaskCreate(vTask, "Task 1", 2048, (void * const)&num1, 5, NULL);
-    xTaskCreate(vTask, "Task 2", 2048, (void * const)&num2, 5, NULL);
-    xTaskCreate(vTask, "Task 3", 2048, (void * const)&num3, 5, NULL);
+    /*Create static variables to pass by reference to the task*/
+    static Data_t data1 = {.number = 1, .delayMs = 1000};
+    strcpy(data1.str, "Hello world!!");
+
+    static Data_t data2 = {.number = 2, .delayMs = 1000};
+    strcpy(data2.str, "Hello world!!");
+
+    static Data_t data3 = {.number = 3, .delayMs = 1000};
+    strcpy(data3.str, "Hello world!!");
+
+    /*Handle will be associate to task*/
+    TaskHandle_t task1 = NULL, task2 = NULL, task3 = NULL; 
+
+    /*Create three task with the Data_t as a parameter*/
+    xTaskCreate(vTask, "Task 1", 2048, (void * const)&data1, 3,&task1);
+    xTaskCreate(vTask, "Task 2", 2048, (void * const)&data2, 3, &task2);
+    xTaskCreate(vTask, "Task 3", 2048, (void * const)&data3, 3, &task3);
 }
-#if 0
-static void vTask_1(void *pvParameters){
-    while(1){
-        printf("Task 1\n");
-        vTaskDelay(1000 / portTICK_RATE_MS);
-    }
-}
-static void vTask_2(void *pvParameters){
-    while(1){
-        printf("Task 2\n");
-        vTaskDelay(1000 / portTICK_RATE_MS);
-    }
-}
-static void vTask_3(void *pvParameters){
-    while(1){
-        printf("Task 3\n");
-        vTaskDelay(1000 / portTICK_RATE_MS);
-    }
-}
-void app_main(){
-    xTaskCreate(vTask_1, "Task 1", 1024, NULL, 4, NULL);
-    xTaskCreate(vTask_2, "Task 2", 1024, NULL, 4, NULL);    
-    xTaskCreate(vTask_3, "Task 3", 1024, NULL, 4, NULL);    
-}
-#endif
+
