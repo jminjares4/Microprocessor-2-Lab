@@ -1,4 +1,4 @@
-# Install script for directory: /home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1
+# Install script for directory: /mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/esp-idf/cmake_install.cmake")
+  include("/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/esp-idf/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

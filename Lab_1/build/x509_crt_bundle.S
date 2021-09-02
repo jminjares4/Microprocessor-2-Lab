@@ -1,4 +1,4 @@
-/* * Data converted from /home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

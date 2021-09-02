@@ -26,7 +26,7 @@ void vTask(void *pvParameters){
     Data_t *data = (Data_t*)(pvParameters);
     while(1){
         #ifdef __ESP_LOG_H__
-            ESP_LOGI(TAG, "String: %s\t Number: %i\n", data->str, (int)data->number);
+            ESP_LOGW(TAG, "String: %s\t Number: %i\n", data->str, (int)data->number);
         #else
             printf("String: %s\t Number: %i\n", data->str, (int)data->number);
         #endif

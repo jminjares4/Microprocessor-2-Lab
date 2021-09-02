@@ -1,4 +1,4 @@
-# Install script for directory: /home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/main
+# Install script for directory: /mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/CMakeFiles/bootloader"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/CMakeFiles/bootloader.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		}
 	],
 	"target" : 

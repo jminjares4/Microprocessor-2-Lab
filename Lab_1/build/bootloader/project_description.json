@@ -1,8 +1,8 @@
 {
     "project_name":       "bootloader",
     "project_path":       "/home/jminjares4/esp/esp-idf/components/bootloader/subproject",
-    "build_dir":          "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/build/bootloader",
-    "config_file":        "/home/jminjares4/esp/esp-idf/examples/Micro_2_Lab/lab_1/sdkconfig",
+    "build_dir":          "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/build/bootloader",
+    "config_file":        "/mnt/c/Users/19152/Desktop/Micro_2_Lab/Lab_1/sdkconfig",
     "config_defaults":    "",
     "app_elf":            "bootloader.elf",
     "app_bin":            "bootloader.bin",
