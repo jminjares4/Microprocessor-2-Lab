@@ -11,7 +11,7 @@
 #define BLINK_GPIO 5
 void app_main(void)
 {
-    /*REset the GPIO pin*/
+    /*Reset the GPIO pin*/
     gpio_reset_pin(BLINK_GPIO);
     /*Set the direction of the GPIO as OUTPUT*/
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
