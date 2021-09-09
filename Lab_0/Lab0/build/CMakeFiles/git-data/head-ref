@@ -1,1 +1,46 @@
-204fe76eb3dfd52c53fa8cfebf1b942bbea1e869
+0000000000000000000000000000000000000000 b4458e5308257857bd389fda01f506ab9da82a04 Your Name <you@example.com> 1630215165 -0600	commit (initial): first commit
+b4458e5308257857bd389fda01f506ab9da82a04 71dd46d3038f5789d6a517b64bec617291c7136e Your Name <you@example.com> 1630215575 -0600	commit: Made changes in ReadMe
+71dd46d3038f5789d6a517b64bec617291c7136e 86a286003bea8baa1435f255453ccd106c834cfa Your Name <you@example.com> 1630215650 -0600	commit: Made changes in ReadMe
+86a286003bea8baa1435f255453ccd106c834cfa 7f3ae34f17c666444d65e0f9e5feb071add289a8 Your Name <you@example.com> 1630215747 -0600	commit: Made changes in ReadMe
+7f3ae34f17c666444d65e0f9e5feb071add289a8 23156289fba637ac1da375984ff08a1940374cea Your Name <you@example.com> 1630216106 -0600	commit: Create Lab 1 & 2 Directories
+23156289fba637ac1da375984ff08a1940374cea f6835260fb08a54a8c0dd4450e56cb3a99c65d1f Your Name <you@example.com> 1630276790 -0600	commit: Delete Lab 2
+f6835260fb08a54a8c0dd4450e56cb3a99c65d1f 3444ae390750faf9fd48a161bb7360382f788c54 Your Name <you@example.com> 1630289433 -0600	commit: Update folder name
+3444ae390750faf9fd48a161bb7360382f788c54 25021b64c5a39add47ca9355952406a317a88eff Your Name <you@example.com> 1630290023 -0600	commit: Update README
+25021b64c5a39add47ca9355952406a317a88eff 08d8445733f9bff35db1aaa3a704466b90f9a104 Your Name <you@example.com> 1630290152 -0600	commit: Added Lab 2
+08d8445733f9bff35db1aaa3a704466b90f9a104 848cedca6089bcd961d31b5c721684c4b487091a Your Name <you@example.com> 1630340816 -0600	commit: Added Lab 3
+848cedca6089bcd961d31b5c721684c4b487091a a28ab7f5144716147540048e38e0622a6f218f4d Your Name <you@example.com> 1630340984 -0600	commit: Edited README
+a28ab7f5144716147540048e38e0622a6f218f4d 915450fc06209e4982930d8ed65be5f1826a4b3c Your Name <you@example.com> 1630448460 -0600	commit: Added Sample project and Lab 1
+915450fc06209e4982930d8ed65be5f1826a4b3c 2f820e96c44899c3e1511204c49c49ee60d29e72 Your Name <you@example.com> 1630461515 -0600	commit: Updated Lab 1
+2f820e96c44899c3e1511204c49c49ee60d29e72 bc51f1afbacdb39a25f9dbce174e6156ae890fb7 Your Name <you@example.com> 1630514266 -0600	commit: Updated Lab 1
+bc51f1afbacdb39a25f9dbce174e6156ae890fb7 fbdbe867e2e560ba3610572b837d6270f03717b6 Your Name <you@example.com> 1630516168 -0600	commit: Change task name
+fbdbe867e2e560ba3610572b837d6270f03717b6 18bc548c2e03b2594f7705f921fbecce70891239 Your Name <you@example.com> 1630522170 -0600	commit: Clean lab 1
+18bc548c2e03b2594f7705f921fbecce70891239 25146351c042b65f8682c742f625334d0bd65ba2 Your Name <you@example.com> 1630539885 -0600	commit: Edited README
+25146351c042b65f8682c742f625334d0bd65ba2 0a19170e0069c942ce8bdf779e5ec05eb84c641a Your Name <you@example.com> 1630540051 -0600	commit: Edited README.md
+0a19170e0069c942ce8bdf779e5ec05eb84c641a c07f770ef334ed3af354081fe03793e6f5faf679 Your Name <you@example.com> 1630552221 -0600	commit: Remove folders
+c07f770ef334ed3af354081fe03793e6f5faf679 4ffcb73880f7bb202a52e9e0c42cfb9f2d5ddee9 Your Name <you@example.com> 1630602257 -0600	commit: Added Lab 0
+4ffcb73880f7bb202a52e9e0c42cfb9f2d5ddee9 ede8ea5b553bc19e03529f1b9405ee7f6cbee3e6 Your Name <you@example.com> 1630602414 -0600	commit: Added comments to Lab 0
+ede8ea5b553bc19e03529f1b9405ee7f6cbee3e6 da4ea9f17d615e0f2d7355bfa506da25cf49fbb4 Your Name <you@example.com> 1630613357 -0600	commit: Edited main.c
+da4ea9f17d615e0f2d7355bfa506da25cf49fbb4 72f862b0dfac0409984b6b27c0bb3899124cc847 Your Name <you@example.com> 1630856993 -0600	commit: Lab 0
+72f862b0dfac0409984b6b27c0bb3899124cc847 0fb6053966ae94c94c37c993974c11fd2afceb93 Your Name <you@example.com> 1630857055 -0600	commit: Edited README
+0fb6053966ae94c94c37c993974c11fd2afceb93 70825c0e75a74695b4a40c6b0e2eb833dc326030 Your Name <you@example.com> 1630857346 -0600	commit: Edited README.md
+70825c0e75a74695b4a40c6b0e2eb833dc326030 d3d43f9ac14539b5d2242c4441d076f55e6c53d5 Your Name <you@example.com> 1630857502 -0600	commit: Edited README.md
+d3d43f9ac14539b5d2242c4441d076f55e6c53d5 7d0e1cae35111a2b6591381144ea6d785669e174 Your Name <you@example.com> 1630857605 -0600	commit: Png
+7d0e1cae35111a2b6591381144ea6d785669e174 213c27fe35c7c0582388d7a9a574d9e239f6f1a3 Your Name <you@example.com> 1630857842 -0600	commit: Edit README
+213c27fe35c7c0582388d7a9a574d9e239f6f1a3 028c0ff01117d5cc7f286038fa78dea0a6072525 Your Name <you@example.com> 1630857907 -0600	commit: Edit README
+028c0ff01117d5cc7f286038fa78dea0a6072525 cd969c67b5ee8195294fcbc05ca6525ae3f8fc0c Your Name <you@example.com> 1630857936 -0600	commit: Edit README
+cd969c67b5ee8195294fcbc05ca6525ae3f8fc0c 875a55ce0970029052cb6e4b93b5889f90c500f8 Your Name <you@example.com> 1630857978 -0600	commit: Edit README
+875a55ce0970029052cb6e4b93b5889f90c500f8 aadffdc79a066f0dbffd9f28d68f5070c1c899c7 Your Name <you@example.com> 1630858036 -0600	commit: Edit README
+aadffdc79a066f0dbffd9f28d68f5070c1c899c7 af86bd8cc2b7ade6850267caef3e18309e01db1d Your Name <you@example.com> 1630858083 -0600	commit: Edit README
+af86bd8cc2b7ade6850267caef3e18309e01db1d c2414d26476bec650a3e54f7bc5101e3a7358c4a Your Name <you@example.com> 1630858142 -0600	commit: Edit README
+c2414d26476bec650a3e54f7bc5101e3a7358c4a c0dbabdffc4ca87ff65ab3581899007d414a7da4 Your Name <you@example.com> 1630858239 -0600	commit: Added png
+c0dbabdffc4ca87ff65ab3581899007d414a7da4 680b150fbac57de72ed1605df441a52589116358 Your Name <you@example.com> 1630858274 -0600	commit: Added png
+680b150fbac57de72ed1605df441a52589116358 63fe81f50fc1d1e4826d0f733e8d839308608e8f Your Name <you@example.com> 1630858293 -0600	commit: Added png
+63fe81f50fc1d1e4826d0f733e8d839308608e8f cfbd2f982c51f93905d32eb792e00ceb03ed45c6 Your Name <you@example.com> 1630858448 -0600	commit: Added .gitignore
+cfbd2f982c51f93905d32eb792e00ceb03ed45c6 33ab0b5de3e4300d0c51261a3e4621948d463d13 Your Name <you@example.com> 1630858502 -0600	commit: Moved .gitignore
+33ab0b5de3e4300d0c51261a3e4621948d463d13 50f6a943496af2758d077c858a3a64e27a90233f Your Name <you@example.com> 1630858753 -0600	commit: rename .png
+50f6a943496af2758d077c858a3a64e27a90233f baebc302ed8ba802f564e726480d52662f98b3a6 Your Name <you@example.com> 1630858800 -0600	commit: Rename screenshot
+baebc302ed8ba802f564e726480d52662f98b3a6 4e6e0d6c7f1c7553e9d448adf193ed749470135c Your Name <you@example.com> 1630859036 -0600	pull: Fast-forward
+4e6e0d6c7f1c7553e9d448adf193ed749470135c 2fa46987e7083ebfa4bec827f4f287d6f1d1759a Your Name <you@example.com> 1630859348 -0600	commit: Remove gitignore
+2fa46987e7083ebfa4bec827f4f287d6f1d1759a 0b4c05fa2f31590b2e4dc7592c25486bea12de93 Your Name <you@example.com> 1630859528 -0600	commit: Update repo
+0b4c05fa2f31590b2e4dc7592c25486bea12de93 204fe76eb3dfd52c53fa8cfebf1b942bbea1e869 Your Name <you@example.com> 1630860001 -0600	commit: Added pinout
+204fe76eb3dfd52c53fa8cfebf1b942bbea1e869 f91eedd8a15e1efc0f29d41a2693cdf08d49a3f6 Your Name <you@example.com> 1630896063 -0600	commit: Rename Lab0 and fix bugs

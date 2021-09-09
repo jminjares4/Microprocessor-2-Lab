@@ -43,7 +43,7 @@
 #include "driver/gpio.h"
 
 /*Define pin 13 as a "BLINK_GPIO*/
-#define BLINK_GPIO 13
+#define BLINK_GPIO 2 //ONBOARD LED
 
 /*Code for the hello_task task*/
 void hello_task(void *pvParameter){
