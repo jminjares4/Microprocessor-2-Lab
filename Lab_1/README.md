@@ -10,4 +10,5 @@
 
 #### Modify the following code
 
+<img width="257" alt="lab 1 code " src="https://user-images.githubusercontent.com/60948298/132753274-8a28c676-6b40-4dd8-ab20-e8fb9d1ce4e1.png">
 
