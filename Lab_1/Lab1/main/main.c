@@ -51,7 +51,7 @@ SemaphoreHandle_t xSemaphore2 = NULL;
 /*Task 1 will run every 2 seconds*/
 void task1(void *pvParameter){
     while(1) {      
-        printf("Task 1\n"); //display message
+        printf("Task 1 running\n"); //display message
         vTaskDelay(2000 / portTICK_RATE_MS); //2 second delay
         xSemaphoreGive( xSemaphore ); //set semaphore flag
     }
@@ -59,7 +59,7 @@ void task1(void *pvParameter){
 /*Task 2 will run every  second*/
 void task2(void *pvParameter){
     while(1){
-        printf("\tTask 2\n"); //display message 
+        printf("\tTask 2 running\n"); //display message 
         vTaskDelay(1000 / portTICK_RATE_MS); // 1 second delay
         xSemaphoreGive( xSemaphore ); //set semaphore flag
     }
@@ -70,7 +70,7 @@ void task3(void *pvParameter){
    while(1){
        /*Wait xSemahpore to be avaiable*/
        if(xSemaphoreTake(xSemaphore, portMAX_DELAY) == pdTRUE){
-            printf("\t\tTask 3\n"); //display message 
+            printf("\t\tTask 3 running\n"); //display message 
             vTaskDelay(100 / portTICK_RATE_MS); //small delay to avoid overflow to the buffer
             xSemaphoreGive(xSemaphore); //give back Task1|Task2 semaphore
             xSemaphoreGive(xSemaphore2);  //set Task 4 semaphore
@@ -85,7 +85,7 @@ void task4(void *pvParameter){
    while(1){
        /*Wait xSemahpore to be avaiable*/
        if(xSemaphoreTake(xSemaphore2, portMAX_DELAY) == pdTRUE){
-            printf("\t\t\tTask 4\n"); //display message 
+            printf("\t\t\tTask 4 running\n"); //display message 
             vTaskDelay(100 / portTICK_RATE_MS); //small delay to avoid overflow to the buffer
             xSemaphoreGive(xSemaphore2); //give back Task 3 semaphore
        }
@@ -98,7 +98,7 @@ void app_main(){
     /*Intialize global semaphores*/
     xSemaphore = xSemaphoreCreateBinary();
     xSemaphore2 = xSemaphoreCreateBinary();
-    
+
     /*
     Create Task 1-4, Task 1-2 will have highest priority followed
     by Task 3 and 4 respectively. 
