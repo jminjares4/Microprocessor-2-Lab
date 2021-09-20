@@ -88,7 +88,6 @@ void app_main(){
     /*Intialize global semaphores*/
     xSemaphore = xSemaphoreCreateBinary();
     xSemaphore2 = xSemaphoreCreateBinary();
-
     /*
     Create Task 1-4, Task 1-2 will have highest priority followed
     by Task 3 and 4 respectively. 
