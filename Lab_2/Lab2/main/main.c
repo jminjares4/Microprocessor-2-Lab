@@ -2,13 +2,13 @@
     Author:     Jesus Minjares
                 Master of Science in Computer Engineering
     Course:     EE 5190 Laboratory for Microprocessors Systems II
-            
+
     Lab 2:      The purpos of Lab 2 is to get familiar with interrupts
                 on ESP32 microcontroller. The lab consist of triggering an
                 interrupt by an external push button that will display an
                 message via serial terminal. 
                 
-    Date:       09-20-2021
+    Date:       09-19-2021
     Pinout:
                                          +-----------------------+
                                          | O      | USB |      O |
