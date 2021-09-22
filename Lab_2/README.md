@@ -8,7 +8,7 @@
 
 ### **Bonus**
 ***
-* Modify the code so the “print_task” prints what port caused the interrupt.+10
+* Modify the code so the “print_task” prints what port caused the interrupt. +10
 
 ### **Modify the following code**
 ***
