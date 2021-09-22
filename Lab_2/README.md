@@ -9,4 +9,6 @@
 * Modify the code so the “print_task” prints what port caused the interrupt.+10
 
 #### Modify the following code
+<img width="217" alt="lab_2_image_1" src="https://user-images.githubusercontent.com/60948298/134283519-0308577b-b940-40db-9112-e605eb8ce36f.png">
 
+<img width="260" alt="lab_2_image_2" src="https://user-images.githubusercontent.com/60948298/134283523-d04e77a7-dbd5-480e-894d-9ff66e4e2dca.png">
