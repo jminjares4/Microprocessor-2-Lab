@@ -1,5 +1,5 @@
-# Lab 1
-## FREERTOS, TASK AND SEMAPHORES
+# Lab 02
+## GPIO, Interrupts, and Queues
 ### Goals
 * Given the program template in Listing 1, create a program which uses port interrupts to trigger a task.
 * The port interrupts must be connected to external push buttons which will trigger the “print_task”.
