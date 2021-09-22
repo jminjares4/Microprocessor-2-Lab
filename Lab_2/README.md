@@ -1,6 +1,5 @@
 # Lab 02
 ## **GPIO, Interrupts, and Queues**
-*** 
 ### **Goals**
 *** 
 * Given the program template in Listing 1, create a program which uses port interrupts to trigger a task.
