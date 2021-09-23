@@ -74,7 +74,6 @@ static void vSenderTask(void *pvParameters){
             xStatus = xQueueSendToBack(xQueue, &IValueToSend, 0); //send data into queue
         #endif
         if(xStatus != pdPASS){
-            // vPrintString("Could not send to the queue.\r\n");
             printf("Could not send to the queue.\n");  
         }
     }
@@ -94,20 +93,17 @@ static void vRecieverTask(void *pvParameters){
 
     for(;;){
         if(uxQueueMessagesWaiting(xQueue) != 0){
-            // vPrintString("Queue should have been empty!\r\n");
             printf("Queue should have been empty!\n");
         }
         xStatus = xQueueReceive(xQueue, &IRecievedValue, xTicksToWait); //recieve data from queue
         /* Check if data was received from the queue */
         if(xStatus == pdPASS){
-            // vPrintStringAndNumber("Received =", IRecievedValue);
             #ifdef _STRUCT_TEST_
                 printf("Recieved= %s,%d\n", IRecievedValue.str, IRecievedValue.val);
             #else
                 printf("Received =%d\n", IRecievedValue);
             #endif
         }else{
-            // vPrintString("Could not recieve from the queue.\r\n");
             printf("Could not recieve from the queue.\n");
         }
     }
@@ -127,7 +123,6 @@ void app_main(void){
         static int32_t data1 = 10, data2 = 20;
         xQueue = xQueueCreate(5, sizeof(int32_t));
     #endif
-   
     /* Check if the queue was create successfully */
     if(xQueue != NULL){
         /*Check for directive */
