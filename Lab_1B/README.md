@@ -13,5 +13,7 @@
 
 ### **Modify the following code**
 ***
+<img width="479" alt="lab1b_1" src="https://user-images.githubusercontent.com/60948298/134446447-cbf6532a-5cdb-4f2e-916e-52147119fcbf.png">
 
+<img width="480" alt="lab1b_2" src="https://user-images.githubusercontent.com/60948298/134446451-ea63b934-f715-40e6-9c45-9b1c061c486d.png">
 
