@@ -45,7 +45,7 @@
 /* Global Queue handle */
 QueueHandle_t xQueue;
 
-/*Directive to change from int32_t -> Data_t */
+/*Directive to change from int32_t -> char * -> Data_t */
 
 // #define _BONUS_ TRUE
 #define _LAB_ TRUE
