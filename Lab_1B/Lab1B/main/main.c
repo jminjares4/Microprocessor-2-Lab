@@ -46,7 +46,9 @@
 QueueHandle_t xQueue;
 
 /*Directive to change from int32_t -> Data_t */
-// #define _STRUCT_TEST_ TRUE
+
+// #define _BONUS_ TRUE
+#define _LAB_ TRUE
 
 /* Basic data structure that will be sent in the Queue*/
 typedef struct Data_t{
@@ -57,19 +59,22 @@ typedef struct Data_t{
 /* Sender task will send data into the queue */
 static void vSenderTask(void *pvParameters){
     /*Check for directive */
-    #ifdef _STRUCT_TEST_
+    #ifdef _BONUS_
         Data_t *IValueToSend = (Data_t*)pvParameters; //store argument
+    #elif defined(_LAB_)
+        char *IValueToSend = (char *)pvParameters; //store argument
     #else
-        int32_t IValueToSend; //store argument
-        IValueToSend = (int32_t) pvParameters;
+        int32_t IValueToSend = (int32_t) pvParameters; //store argument
     #endif
     
     BaseType_t xStatus; //hold status 
 
     for(;;){
          /*Check for directive */
-        #ifdef _STRUCT_TEST_
+        #ifdef _BONUS_
             xStatus = xQueueSendToBack(xQueue, IValueToSend, 0);  //send data into queue
+        #elif defined(_LAB_)
+            xStatus = xQueueSendToBack(xQueue, &IValueToSend, 0); //send data into queue
         #else
             xStatus = xQueueSendToBack(xQueue, &IValueToSend, 0); //send data into queue
         #endif
@@ -80,8 +85,10 @@ static void vSenderTask(void *pvParameters){
 }
 static void vRecieverTask(void *pvParameters){
     /*Check for directive */
-    #ifdef _STRUCT_TEST_
+    #ifdef _BONUS_
         Data_t IRecievedValue;
+    #elif defined(_LAB_)
+        char *IRecievedValue;
     #else
         int32_t IRecievedValue;
     #endif
@@ -98,8 +105,10 @@ static void vRecieverTask(void *pvParameters){
         xStatus = xQueueReceive(xQueue, &IRecievedValue, xTicksToWait); //recieve data from queue
         /* Check if data was received from the queue */
         if(xStatus == pdPASS){
-            #ifdef _STRUCT_TEST_
+            #ifdef _BONUS_
                 printf("Recieved= %s,%d\n", IRecievedValue.str, IRecievedValue.val);
+            #elif defined(_LAB_)
+                printf("Recieved= %s\n", IRecievedValue);
             #else
                 printf("Received =%d\n", IRecievedValue);
             #endif
@@ -113,11 +122,15 @@ void app_main(void){
     /*  Create static variable so they will be store in static memory
         and once the main terminate, it content will not be corrupted.
     */
-    #ifdef _STRUCT_TEST_
+    #ifdef _BONUS_
         /* Create Queue of type Data_t */
         static Data_t data1 = {"EE4178", 10};
         static Data_t data2 = {"Fall2021", 20};
         xQueue = xQueueCreate(5, sizeof(Data_t));
+    #elif defined(_LAB_)
+        static const char *data1 = "EE4178";
+        static const char *data2 = "Fall2021";
+        xQueue = xQueueCreate(5, sizeof(char*));
     #else
         /* Create Queue of type int32_t */
         static int32_t data1 = 10, data2 = 20;
@@ -126,10 +139,13 @@ void app_main(void){
     /* Check if the queue was create successfully */
     if(xQueue != NULL){
         /*Check for directive */
-        #ifdef _STRUCT_TEST_
+        #ifdef _BONUS_
             /* Create sender tasks and send Data_t as arguments */
             xTaskCreate(vSenderTask, "Sender1", 2048, (void *)&data1, 1, NULL);
             xTaskCreate(vSenderTask, "Sender2", 2048, (void *)&data2, 1, NULL);
+        #elif defined(_LAB_)
+            xTaskCreate(vSenderTask, "Sender1", 2048, (void *)data1, 1, NULL);
+            xTaskCreate(vSenderTask, "Sender2", 2048, (void *)data2, 1, NULL);
         #else
             /* Create sender tasks and send int32_t as arguments */
             xTaskCreate(vSenderTask, "Sender1", 2048, (void *)data1, 1, NULL);
