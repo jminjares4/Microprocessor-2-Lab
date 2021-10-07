@@ -15,4 +15,4 @@
 ***
 <img width="428" alt="lab3 " src="https://user-images.githubusercontent.com/60948298/136305157-b2b8c718-20e2-4f60-a98a-3fe085de3306.png">
 
-<img width="380" alt="lab3_1" src="https://user-images.githubusercontent.com/60948298/136305166-88af8401-2f00-4d32-9945-55127a2487c4.png">
+<img width="428" alt="lab3_1" src="https://user-images.githubusercontent.com/60948298/136305166-88af8401-2f00-4d32-9945-55127a2487c4.png">
