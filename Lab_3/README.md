@@ -1,14 +1,15 @@
-# Lab 02
-## **GPIO, Interrupts, and Queues**
+# Lab 03
+## **Peripherals and Queues:ADC and PWM (LEDC)**
 ### **Goals**
 *** 
-* Given the program template in Listing 1, create a program which uses port interrupts to trigger a task.
-* The port interrupts must be connected to external push buttons which will trigger the “print_task”.
-* On the “print_task” your program should print that the interrupt was trigger.
+* With the help of the ADC and the LEDC API’s, initialize the peripherals and create a task to perform the readings of the ADC every 100 millisecond.
+* This task should feed the information into a queue.
+* Create a task that synchronous to the queue to update the PWM’s duty cycle based on the value read by the ADC.
+* Modify the program in listing 1 to achieve these goals.
 
 ### **Bonus**
 ***
-* Modify the code so the “print_task” prints what port caused the interrupt. +10
+* Add a port interrupt to stop and start the PWM signal.+10
 
 ### **Modify the following code**
 ***
