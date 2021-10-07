@@ -50,102 +50,38 @@ static xQueueHandle duty_queue = NULL; //global queue handle
 
 /*GPIO ISR Routine*/
 static void IRAM_ATTR gpio_isr_handler(void * arg){
-    /*create a static variable to be store in static memory */
-    static int count = 0;
-    count++; //increment count 
-    if(count == 1){ //check if 1
-        ledc_timer_pause(LEDC_LOW_SPEED_MODE,LEDC_TIMER_0); //pause timer 
-    }
-    if(count == 2){ //check if 2
-      ledc_timer_resume(LEDC_LOW_SPEED_MODE,LEDC_TIMER_0);  //stop timer
-      count = 0; //reset count 
-    }
+
 }
 /* ADC Task*/
 void ADCtask(void *pvParameter){
     while(1){
-        //every 100ms
-        vTaskDelay(100/portTICK_PERIOD_MS);
-        /*Read adc value @ CHANNEL 6*/
-        int val = adc1_get_raw(ADC1_CHANNEL_6);   
-        /*Send to queue*/
-        xQueueSendToBack(duty_queue,&val,(TickType_t)10);
     }
 }
 /* PWM Task*/
 void PWMtask(void *pvParameter){
     int val; //variable to store queue 
     while(1){
-        if(xQueueReceive(duty_queue,&val,(TickType_t)10) == pdPASS){ //wait for queueu to recieve 
-            printf("Val: %d\n", val); //display message 
-            ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0,(uint32_t)val); //set duty 
-            ledc_update_duty(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0); //update duty 
-        } 
+
     }
 }
 /* Set ADC */
 void setADC(){
-    /*Set the ADC with @ 12 bits -> 2^12 = 4096*/
-    adc1_config_width(ADC_WIDTH_BIT_12);
-    /*Set CHANNEL 6 @ 2600 mV*/
-    adc1_config_channel_atten(ADC1_CHANNEL_6, ADC_ATTEN_DB_11);
+
 }
 /* Set PWM */
 void setPWM(){
-    /*
-        Set LEDC Timer:
-                        5000hz
-                        AUTO_CLK
-                        TIMER_0
-                        LOW_SPEED
-                        13 BIT
-    */
+    
     ledc_timer_config_t timerConfig;
-    timerConfig.duty_resolution = LEDC_TIMER_13_BIT; 
-    timerConfig.timer_num = LEDC_TIMER_0;
-    timerConfig.freq_hz = 5000; 
-    timerConfig.speed_mode = LEDC_LOW_SPEED_MODE;
-    timerConfig.clk_cfg = LEDC_AUTO_CLK;
+  
     ledc_timer_config(&timerConfig);
-    /*
-        Set LEDC Channel:
-                        GPIO_2
-                        LOW_SPEED
-                        TIMER_0
-                        LOW_SPEED
-                        0 duty
-    */
+ 
     ledc_channel_config_t tChaConfig;
-    tChaConfig.gpio_num = ONBOARD_LED;    
-    tChaConfig.speed_mode = LEDC_LOW_SPEED_MODE;
-    tChaConfig.channel = LEDC_CHANNEL_0;
-    tChaConfig.intr_type = LEDC_INTR_DISABLE;
-    tChaConfig.timer_sel = LEDC_TIMER_0 ;
-    tChaConfig.duty = 0;
+
     ledc_channel_config(&tChaConfig);
 }
 /* Set GPIO */
 void setGPIO(){
-    /*
-        GPIO config:
-                        INPUT
-                        PULL_UP
-                        NEG_EDGE
-                        GPIO_2
-    */
-    gpio_config_t io;
-    io.pin_bit_mask = GPIO_INPUT_SEL;
-    io.mode = GPIO_MODE_INPUT;
-    io.pull_down_en = 0;
-    io.pull_up_en = 1;
-    io.intr_type = GPIO_INTR_NEGEDGE;
-
-    /* set configuration */
-    gpio_config(&io);
-    /* Set IRS @ 0 to non-share memory */
-    gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
-    /* Attach BUTTON @ gpio isr */
-    gpio_isr_handler_add(BUTTON, gpio_isr_handler, (void*)NULL);
+ 
 }
 /* main */
 void app_main(void){
