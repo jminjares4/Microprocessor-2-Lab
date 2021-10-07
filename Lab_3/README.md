@@ -13,5 +13,6 @@
 
 ### **Modify the following code**
 ***
-<img width="407" alt="lab_2_image_0" src="https://user-images.githubusercontent.com/60948298/134283707-57f65366-fad6-4c31-9dc2-ff7327c1cb5e.png">
-<img width="409" alt="lab_2_image_1" src="https://user-images.githubusercontent.com/60948298/134283712-27e15f32-9094-4591-bb5e-5cfc64c14fe2.png">
+<img width="428" alt="lab3 " src="https://user-images.githubusercontent.com/60948298/136305157-b2b8c718-20e2-4f60-a98a-3fe085de3306.png">
+
+<img width="380" alt="lab3_1" src="https://user-images.githubusercontent.com/60948298/136305166-88af8401-2f00-4d32-9945-55127a2487c4.png">
