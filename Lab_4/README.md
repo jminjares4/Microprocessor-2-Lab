@@ -1,4 +1,4 @@
-# Lab 03
+# Lab 04
 ## **DAC Peripheral**
 ### **Goals**
 *** 
