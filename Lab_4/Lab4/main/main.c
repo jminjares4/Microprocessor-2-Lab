@@ -40,25 +40,46 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
+#include "stdbool.h"
+#define PI 3.14159265
+
+
+// #define _BONUS_
 void createTriangleWave(void *pvParameter){
     dac_output_enable(DAC_CHANNEL_1);
-    static int i =0;
+
     while(1){
-        dac_output_voltage(DAC_CHANNEL_1,i);
-        //compute triangular waveform value
-        vTaskDelay(10/portTICK_PERIOD_MS);
+        for(int i =0; i < 255; i++){
+            dac_output_voltage(DAC_CHANNEL_1, i);
+            vTaskDelay(10/portTICK_PERIOD_MS);
+        }
+        for(int i = 255; i > 0; i--){
+            dac_output_voltage(DAC_CHANNEL_1, i);
+            vTaskDelay(10/portTICK_PERIOD_MS);
+        }
     }
 }
 
 void createSineWave(void *pvParameter){
     dac_output_enable(DAC_CHANNEL_2);
     static int i =0;
-    float val;
+    // float val;
     int n;
     while(1){
+        #ifdef _BONUS_
+            n = sin( (PI / 180) * i ) * 100 + 100;
+            i += 36;
+            if(i == 360) i = 0;
+            dac_output_voltage(DAC_CHANNEL_2, n);
+            vTaskDelay(100/portTICK_PERIOD_MS);
+        #else
         //compute sine waveform value 
-        dac_out_voltage(DAC_CHANNEL_2, n);
+        n = sin( (PI / 180) * i++ ) * 100 + 100;
+        if(i == 360) i = 0;
+        dac_output_voltage(DAC_CHANNEL_2, n);
         vTaskDelay(10/portTICK_PERIOD_MS);
+
+        #endif
     }
 }
 
