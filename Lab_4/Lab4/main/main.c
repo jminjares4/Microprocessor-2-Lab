@@ -5,7 +5,7 @@
     Lab 4:      The purpose of this lab is to use DAC driver of espressif. The main tasl
                 consist of using GPIO 25 and GPIO 26 to generate a sine wave and triangle wave. 
                 The ESP32 DAC has a 8 bit resolution therefore 0-255 bits or 0.0-3.3V output.
-    Date:       10-11-2021
+    Date:       10-14-2021
     Pinout:
                                          +-----------------------+
                                          | O      | USB |      O |
@@ -40,49 +40,50 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-#include "stdbool.h"
+/* Macros for better functionality */
 #define PI 3.14159265
+#define _BONUS_
 
-
-// #define _BONUS_
+/* Task will create a triangular wave @ GPIO 25 */
 void createTriangleWave(void *pvParameter){
+    /* Enable DAC output */
     dac_output_enable(DAC_CHANNEL_1);
-
     while(1){
+        /* Positve edge ram */
         for(int i =0; i < 255; i++){
-            dac_output_voltage(DAC_CHANNEL_1, i);
-            vTaskDelay(10/portTICK_PERIOD_MS);
+            dac_output_voltage(DAC_CHANNEL_1, i);  //DAC output
+            vTaskDelay(10/portTICK_PERIOD_MS); //small delay
         }
+        /* Negative edge ram */
         for(int i = 255; i > 0; i--){
-            dac_output_voltage(DAC_CHANNEL_1, i);
-            vTaskDelay(10/portTICK_PERIOD_MS);
+            dac_output_voltage(DAC_CHANNEL_1, i);  //DAC output
+            vTaskDelay(10/portTICK_PERIOD_MS); //small delay
         }
     }
 }
-
+/* Task will create a sine wave @ GPIO 26 */
 void createSineWave(void *pvParameter){
+    /* Enable DAC output */
     dac_output_enable(DAC_CHANNEL_2);
     static int i =0;
-    // float val;
     int n;
     while(1){
+        /* Sin wave @ 10 hz */
         #ifdef _BONUS_
-            n = sin( (PI / 180) * i ) * 100 + 100;
+            n = sin( (PI / 180) * i ) * 100 + 100; //convert rads to degrees
             i += 36;
             if(i == 360) i = 0;
-            dac_output_voltage(DAC_CHANNEL_2, n);
-            vTaskDelay(100/portTICK_PERIOD_MS);
+            dac_output_voltage(DAC_CHANNEL_2, n); //DAC output
+            vTaskDelay(100/portTICK_PERIOD_MS); //every 1/10 sec
         #else
         //compute sine waveform value 
-        n = sin( (PI / 180) * i++ ) * 100 + 100;
+        n = sin( (PI / 180) * i++ ) * 100 + 100; //convert rads to degrees
         if(i == 360) i = 0;
-        dac_output_voltage(DAC_CHANNEL_2, n);
-        vTaskDelay(10/portTICK_PERIOD_MS);
-
+        dac_output_voltage(DAC_CHANNEL_2, n); //DAC output
+        vTaskDelay(10/portTICK_PERIOD_MS); // 1/100
         #endif
     }
 }
-
 void app_main(void){
     //create task for both DAC channels
     xTaskCreate(&createTriangleWave, "createTriangleWave", 4096, NULL, 5, NULL);
