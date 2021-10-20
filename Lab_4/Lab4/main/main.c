@@ -74,13 +74,13 @@ void createSineWave(void *pvParameter){
             i += 36;
             if(i == 360) i = 0;
             dac_output_voltage(DAC_CHANNEL_2, n); //DAC output
-            vTaskDelay(100/portTICK_PERIOD_MS); //every 1/10 sec
+            vTaskDelay(10/portTICK_PERIOD_MS); //every 10/1000 sec
         #else
         //compute sine waveform value 
         n = sin( (PI / 180) * i++ ) * 100 + 100; //convert rads to degrees
         if(i == 360) i = 0;
         dac_output_voltage(DAC_CHANNEL_2, n); //DAC output
-        vTaskDelay(10/portTICK_PERIOD_MS); // 1/100
+        vTaskDelay(100/portTICK_PERIOD_MS); // 100 ms
         #endif
     }
 }
