@@ -49,10 +49,8 @@ Pinout:
 /* Create global semaphores flags */
 SemaphoreHandle_t  sem1 = NULL, sem2 = NULL, sem3 = NULL;
 
-// #define _EASY_
-#define _HARD_
+#define DEADLOCK_OFF 
 
-#ifdef _EASY_
 void Task1(void *pvParameter){
     printf("Easy version\n");
     while(1){
@@ -89,48 +87,6 @@ void Task3(void *pvParameters){
         xSemaphoreGive(sem3);
     }
 }
-#elif defined(_HARD_)
-/* Task 1*/
-void Task1(void *pvParameter){
-    printf("Hard version\n");
-    while(1){
-        /* Wait for Task 3 flag */
-       if(xSemaphoreTake(sem3, (TickType_t)1000) == pdPASS){
-            /* Display message */
-            printf("Task 1 running\n");
-            vTaskDelay(100/portTICK_RATE_MS);
-            /* Send semaphore 1*/
-            xSemaphoreGive(sem1);
-       }
-    }
-}
-/* Task 2 */
-void Task2(void *pvParameter){
-    while(1){     
-        /* Wait for Task 1 flag */
-        if(xSemaphoreTake(sem1, (TickType_t)1000) == pdPASS){
-            /*Display message */
-            printf("Task 2 running\n");
-            vTaskDelay(100/portTICK_RATE_MS);
-            /* Send semaphore 2 */
-            xSemaphoreGive(sem2);
-        } 
-    }
-}
-/* Task 3 */
-void Task3(void *pvParameters){
-    while(1){
-        /* Wait for Task 2 flag */
-        if(xSemaphoreTake(sem2, (TickType_t)1000) == pdPASS){
-            /* Display message */
-            printf("Task 3 running\n");
-            vTaskDelay(100/portTICK_RATE_MS);
-            /* Send semaphore 3 */
-            xSemaphoreGive(sem3);
-        }
-    }
-}
-#endif
 void app_main(void){
 
     sem1 = xSemaphoreCreateBinary(), sem2 = xSemaphoreCreateBinary(), sem3 = xSemaphoreCreateBinary();
@@ -143,7 +99,9 @@ void app_main(void){
        set one of the binary flags as 1
     */
     /* Binary flags */
-    // xSemaphoreGive(sem1); //set semaphore 3 Output: 3,2,1
+    #ifdef DEADLOCK_OFF
+    xSemaphoreGive(sem1); //set semaphore 3 Output: 3,2,1
     // xSemaphoreGive(sem2); //set semaphore 3 Output: 2,3,1
     // xSemaphoreGive(sem3); //set semaphore 3 Output: 1,2,3
+    #endif 
 }
