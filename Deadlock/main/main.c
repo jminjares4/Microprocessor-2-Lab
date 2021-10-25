@@ -9,8 +9,8 @@ Goal:   Generate a deadlock using binary semaphores.
         Task 3 will wait for Task 2 and then intiate Task 1.
 
 
-          Task 1
-      |            \
+           Task 1
+      /            \
     Task 3   <-   Task 2   
 
 
@@ -100,8 +100,8 @@ void app_main(void){
     */
     /* Binary flags */
     #ifdef DEADLOCK_OFF
-    xSemaphoreGive(sem1); //set semaphore 3 Output: 3,2,1
-    // xSemaphoreGive(sem2); //set semaphore 3 Output: 2,3,1
-    // xSemaphoreGive(sem3); //set semaphore 3 Output: 1,2,3
+        xSemaphoreGive(sem1); //set semaphore 3 Output: 3,2,1
+        // xSemaphoreGive(sem2); //set semaphore 3 Output: 2,3,1
+        // xSemaphoreGive(sem3); //set semaphore 3 Output: 1,2,3
     #endif 
 }
