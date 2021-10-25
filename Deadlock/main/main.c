@@ -88,7 +88,7 @@ void Task3(void *pvParameters){
     }
 }
 void app_main(void){
-
+    /* Create binary semaphores */
     sem1 = xSemaphoreCreateBinary(), sem2 = xSemaphoreCreateBinary(), sem3 = xSemaphoreCreateBinary();
 
     xTaskCreate(&Task1, "Task 1", 2048, NULL, 4, NULL);
