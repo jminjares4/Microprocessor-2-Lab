@@ -7,4 +7,4 @@
 * The webpage included in the provided code is shown in Figure 1.
 ### **Bonus**
 ***
-* Create your own HTML page for the server.+20
+* Create your own HTML page for the server. +20
