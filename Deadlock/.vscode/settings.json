@@ -1,9 +1,0 @@
-{
-  "C_Cpp.intelliSenseEngine": "Tag Parser",
-  "files.associations": {
-    "task.h": "c",
-    "freertos.h": "c",
-    "semaphore.h": "c",
-    "semphr.h": "c"
-  }
-}
