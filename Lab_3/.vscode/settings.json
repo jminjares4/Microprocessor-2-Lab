@@ -1,0 +1,14 @@
+{
+  "C_Cpp.intelliSenseEngine": "Tag Parser",
+  "files.associations": {
+    "ledc.h": "c",
+    "sdkconfig.h": "c",
+    "adc.h": "c",
+    "queue.h": "c",
+    "gpio.h": "c",
+    "task.h": "c",
+    "freertos.h": "c",
+    "chrono": "c",
+    "algorithm": "c"
+  }
+}
