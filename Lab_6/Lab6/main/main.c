@@ -47,24 +47,17 @@
 #include "lwip/api.h"
 #include "driver/mcpwm.h"
 
+//BONUS 
+#define _BONUS_
+
+
 const static char http_html_hdr[] = "HTTP/1.1 200 OK\r\nContent-type: text/html\r\n\r\n";
 const static char http_html_hdr1[] = "HTTP/1.1 200 OK\r\nContent-type: text/plain\r\n\r\n";
-const static char http_index_hml[] = R"=====(<!DOCTYPE html><html> <head> <meta charset = UTF-8 
-name = "viewport" content = "width = device-width initial-scale = 1.0"> <title>Home Page</title> </head> 
-<body> <div class="header"> <h1>Home Page</h1> </div> <input class = "btn" id = "btn0" type="button" 
-value = "BTN0" onclick = "sendRequest()"> <input class = "btn" id = "btn1" type="button" value = "BTN1" 
-onclick = "sendRequest1()"> <div class="sensorVal"> <p>Sensor Value: </p> <div id="sen"></div> </div> 
-<style> *{margin:0; padding:0;} body {background-color: #D4DCE2;} .header { width:100%; height:55px; 
-color: white; background-color: #04254D; padding: 0; text-align:center; } .header h1{ color:white; verticalalign:center; font-size:42px; } .btn { margin: 0; margin-top: .5%; background-color: #FB9541; width:48%; 
-Written by Hector Mota. Modified by Dr. Erives & Mirza Elahi September 2021
-border: none; color: white; padding: 25px 38px; text-align: center; text-decoration: none; font-size: 16px; } 
-.sensorVal { margin: 0; margin-top: .5%; width:100%; height:70px; color: white; background-color: 
-#04254D; padding: 0; text-align:center; } .sensorVal p{ color:white; vertical-align:center; font-size:38px; } 
-</style> <script> function sendRequest(){ var http = new XMLHttpRequest(); http.onreadystatechange = 
-(()=>{ if(http.readyState === 4){ if(http.status === 200){ var res = http.responseText; } } }); 
-http.open("GET", "0", true); http.send(); } function sendRequest1(){ var http = new XMLHttpRequest(); 
-http.onreadystatechange = (()=>{ if(http.readyState === 4){ if(http.status === 200){ var res = 
-http.responseText; } } }); http.open("GET", "1", true); http.send(); } </script> </body></html>)=====";
+#ifdef _BONUS_
+    const static char http_index_hml[] = R"=====(<!DOCTYPE html><html> <head> <meta charset = UTF-8 name = "viewport" content = "width = device-width initial-scale = 1.0"> <title>Home Page</title> </head> <body> <div class="header"> <h1>Jesus Minjares</h1> </div> <input class = "btn" id = "btn0" type="button" value = "BTN0" onclick = "sendRequest()"> <input class = "btn" id = "btn1" type="button" value = "BTN1" onclick = "sendRequest1()"> <div class="JMINJARES4"> <p> JMINJARES4@MINERS.UTEP.EDU </p> <div id="sen"></div> </div> <style> *{margin:0; padding:0;} body {background-color: #D4DCE2;} .header { width:100%; height:55px; color: white; background-color: #04254D; padding: 0; text-align:center; } .header h1{ color:white; vertical-align:center; font-size:42px; } .btn { margin: 0; margin-top: .5%; background-color: #FB9541; width:48%; border: none; color: white; padding: 25px 38px; text-align: center; text-decoration: none; font-size: 16px; } .JMINJARES4 { margin: 0; margin-top: .5%; width:100%; height:70px; color: white; background-color: #04254D; padding: 0; text-align:center; } .sensorVal p{ color:white; vertical-align:center; font-size:38px; } </style> <script> function sendRequest(){ var http = new XMLHttpRequest(); http.onreadystatechange = (()=>{ if(http.readyState === 4){ if(http.status === 200){ var res = http.responseText; } } }); http.open("GET", "0", true); http.send(); } function sendRequest1(){ var http = new XMLHttpRequest(); http.onreadystatechange = (()=>{ if(http.readyState === 4){ if(http.status === 200){ var res = http.responseText; } } }); http.open("GET", "1", true); http.send(); } </script> </body></html>)=====";
+#else
+    const static char http_index_hml[] = R"=====(<!DOCTYPE html><html> <head> <meta charset = UTF-8 name = "viewport" content = "width = device-width initial-scale = 1.0"> <title>Home Page</title> </head> <body> <div class="header"> <h1>Home Page</h1> </div> <input class = "btn" id = "btn0" type="button" value = "BTN0" onclick = "sendRequest()"> <input class = "btn" id = "btn1" type="button" value = "BTN1" onclick = "sendRequest1()"> <div class="sensorVal"> <p>Sensor Value: </p> <div id="sen"></div> </div> <style> *{margin:0; padding:0;} body {background-color: #D4DCE2;} .header { width:100%; height:55px; color: white; background-color: #04254D; padding: 0; text-align:center; } .header h1{ color:white; vertical-align:center; font-size:42px; } .btn { margin: 0; margin-top: .5%; background-color: #FB9541; width:48%; border: none; color: white; padding: 25px 38px; text-align: center; text-decoration: none; font-size: 16px; } .sensorVal { margin: 0; margin-top: .5%; width:100%; height:70px; color: white; background-color: #04254D; padding: 0; text-align:center; } .sensorVal p{ color:white; vertical-align:center; font-size:38px; } </style> <script> function sendRequest(){ var http = new XMLHttpRequest(); http.onreadystatechange = (()=>{ if(http.readyState === 4){ if(http.status === 200){ var res = http.responseText; } } }); http.open("GET", "0", true); http.send(); } function sendRequest1(){ var http = new XMLHttpRequest(); http.onreadystatechange = (()=>{ if(http.readyState === 4){ if(http.status === 200){ var res = http.responseText; } } }); http.open("GET", "1", true); http.send(); } </script> </body></html>)=====";
+#endif
 
 #define EXAMPLE_ESP_WIFI_SSID "MINJARES"
 #define EXAMPLE_ESP_WIFI_PASS "12345678"
@@ -219,7 +212,7 @@ void setUpPWM()
         .duty_mode = MCPWM_DUTY_MODE_0,
     };
     mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);
-    ESP_LOGI(SERVO_TAG, "Servo motor has been intialize");
+    ESP_LOGW(SERVO_TAG, "Servo motor has been intialize");
 }
 void app_main()
 {
