@@ -1,3 +1,36 @@
+/*
+    Author:     Jesus Minjares
+                Master of Science in Computer Engineering
+    Course:     EE 5190 Laboratory for Microprocessors Systems II
+    Lab 7:      The purpose of this lab is to wifi module of the ESP32 and connect
+                with the ESP32 as a http server from a client and control a LED and ADC readings.
+    Date:       10-30-2021
+    Pinout:
+                                         +-----------------------+
+                                         | O      | USB |      O |
+                                         |        -------        |
+                                     3V3 | [ ]               [ ] | VIN
+                                     GND | [ ]               [ ] | GND
+     Touch3 / HSPI_CS0 / ADC2_3 / GPIO15 | [ ]               [ ] | GPIO13 / ADC2_4 / HSPI_ID / Touch4
+ CS / Touch2 / HSPI_WP / ADC2_2 /  GPIO2 | [ ]               [ ] | GPIO12 / ADC2_5 / HSPI_Q / Touch5
+      Touch0 / HSPI_HD / ADC2_0 /  GPIO4 | [ ]               [ ] | GPIO14 / ADC2_6 / HSPI_CLK / Touch6
+                         U2_RXD / GPIO16 | [ ]               [ ] | GPIO27 / ADC2_7 / Touch7
+                         U2_TXD / GPIO17 | [ ]               [ ] | GPIO26 / ADC2_9 / DAC2
+                      V_SPI_CS0 /  GPIO5 | [ ]  ___________  [ ] | GPIO25 / ADC2_8 / DAC1
+                SCK / V_SPI_CLK / GPIO18 | [ ] |           | [ ] | GPIO33 / ADC1_5 / Touch8 / XTAL32
+        U0_CTS / MSIO / V_SPI_Q / GPIO19 | [ ] |           | [ ] | GPIO32 / ADC1_4 / Touch9 / XTAL32
+                 SDA / V_SPI_HD / GPIO21 | [ ] |           | [ ] | GPIO35 / ADC1_7
+                  CLK2 / U0_RXD /  GPIO3 | [ ] |           | [ ] | GPIO34 / ADC1_6
+                  CLK3 / U0_TXD /  GPIO1 | [ ] |           | [ ] | GPIO39 / ADC1_3 / SensVN
+        SCL / U0_RTS / V_SPI_WP / GPIO22 | [ ] |           | [ ] | GPIO36 / ADC1_0 / SensVP
+                MOSI / V_SPI_WP / GPIO23 | [ ] |___________| [ ] | EN
+                                         |                       |
+                                         |  |  |  ____  ____  |  |
+                                         |  |  |  |  |  |  |  |  |
+                                         |  |__|__|  |__|  |__|  |
+                                         | O                   O |
+                                         +-----------------------+
+*/
 #include <string.h>
 #include <math.h>
 #include "freertos/FreeRTOS.h"
@@ -201,11 +234,11 @@ void onURL(struct netconn *conn, char command)
     }
     else if (command == '1') //If the get data button is pressed
     {
-        int reading = adc1_get_raw(ADC1_CHANNEL_6); //Get the ADC reading
-        float voltage = (reading * 3.3)/4095;          //Multiply times the ratio so that our reading comes out from 0V to 3.3V (but in milivolts)
+        int adc = adc1_get_raw(ADC1_CHANNEL_6); //Get the ADC reading
+        float voltage = (adc * 3.3)/4095;          //Multiply times the ratio so that our reading comes out from 0V to 3.3V (but in milivolts)
         char ans[24];                                //String that we're going to send back to the webpage
         memset(ans, 0, sizeof(ans));
-        sprintf(ans,"%d ADC -> %.2f V", reading, voltage);
+        sprintf(ans,"%d ADC -> %.2f V", adc, voltage);
         netconn_write(conn, http_txt_hdr, sizeof(http_txt_hdr) - 1, NETCONN_NOCOPY);
         netconn_write(conn, ans, sizeof(ans), NETCONN_NOCOPY);
     }
