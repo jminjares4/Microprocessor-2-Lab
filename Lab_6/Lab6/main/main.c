@@ -50,7 +50,6 @@
 //BONUS 
 #define _BONUS_
 
-
 const static char http_html_hdr[] = "HTTP/1.1 200 OK\r\nContent-type: text/html\r\n\r\n";
 const static char http_html_hdr1[] = "HTTP/1.1 200 OK\r\nContent-type: text/plain\r\n\r\n";
 #ifdef _BONUS_
@@ -152,23 +151,23 @@ static void http_server_netconn_serve(struct netconn *conn)
             {
                 netconn_write(conn, http_html_hdr1, sizeof(http_html_hdr1) - 1, NETCONN_NOCOPY);
                 netconn_write(conn, "1", 1, NETCONN_NOCOPY);
-                for (int angle = -SERVO_MAX_DEGREE; angle < SERVO_MAX_DEGREE; angle++)
-                {
-                    ESP_LOGI(TAG, "Angle of rotation: %d", angle);
-                    ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(angle)));
-                    vTaskDelay(10/portTICK_RATE_MS); // Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation under 5V power supply
-                }
+               // for (int angle = -SERVO_MAX_DEGREE; angle < SERVO_MAX_DEGREE; angle++)
+                //{
+                    ESP_LOGI(TAG, "Angle of rotation: %d", 90);
+                    ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(0)));
+                    vTaskDelay(1000/portTICK_RATE_MS); // Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation under 5V power supply
+                // }
             }
             if (buf[5] == '1')
             {
                 netconn_write(conn, http_html_hdr1, sizeof(http_html_hdr1) - 1, NETCONN_NOCOPY);
                 netconn_write(conn, "1", 1, NETCONN_NOCOPY);
-                for (int angle = SERVO_MAX_DEGREE; angle > -SERVO_MAX_DEGREE; angle--)
-                {
-                    ESP_LOGI(TAG, "Angle of rotation: %d", angle);
-                    ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(angle)));
-                    vTaskDelay(10/portTICK_RATE_MS); // Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation under 5V power supply
-                }
+            //    for (int angle = SERVO_MAX_DEGREE; angle > -SERVO_MAX_DEGREE; angle--)
+              //  {
+                    ESP_LOGI(TAG, "Angle of rotation: %d", -90);
+                    ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(180)));
+                    vTaskDelay(1000/portTICK_RATE_MS); // Add delay, since it takes time for servo to rotate, generally 100ms/60degree rotation under 5V power supply
+                // }
             }
             else
             {
@@ -203,10 +202,10 @@ static void http_server(void *pvParameters)
 }
 void setUpPWM()
 {
-    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, SERVO_PULSE_GPIO); // To drive a RC servo, one MCPWM generator is enough
-
+    // To drive a RC servo, one MCPWM generator is enough
+    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, SERVO_PULSE_GPIO); 
     mcpwm_config_t pwm_config = {
-        .frequency = 50, // frequency = 50Hz, i.e. for every servo motor time period should be 20ms
+        .frequency = 50, // frequency = 50H
         .cmpr_a = 0,     // duty cycle of PWMxA = 0
         .counter_mode = MCPWM_UP_COUNTER,
         .duty_mode = MCPWM_DUTY_MODE_0,
