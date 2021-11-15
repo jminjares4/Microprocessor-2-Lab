@@ -1,7 +1,7 @@
 # Microprocessor-2-Lab
 ## Content
 **Labs**
-* Lab 0 	Introduction to FreeRTOS
+* [Lab 0 	Introduction to FreeRTOS](https://github.com/jminjares4/Microprocessor-2-Lab/tree/master/Lab_0)
 * Lab 1		FreeRTOS, Tasks, and Semaphores
 * Lab 1B	FreeRTOS: Queue
 * Lab 2		GPIO, Interrupts, and Queues
