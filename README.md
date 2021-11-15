@@ -10,7 +10,7 @@
 * [Lab 5		WiFi and Internet of Things (IOT)](https://github.com/jminjares4/Microprocessor-2-Lab/tree/master/Lab_5)
 * [Lab 6		WiFi and Internet of Things (IOT): Servo Motor Control](https://github.com/jminjares4/Microprocessor-2-Lab/tree/master/Lab_6)
 * [Lab 7        WiFi and IOT: ADC Monitor](https://github.com/jminjares4/Microprocessor-2-Lab/tree/master/Lab_7)
-## Assignments
+### Assignments
 **Miniprojects**
 * [Miniproject 1 Implement a deadlock](https://github.com/jminjares4/Microprocessor-2-Lab/tree/master/MiniProject1)
 * [Miniproject 2 Implement a priority inversion](https://github.com/jminjares4/Microprocessor-2-Lab/tree/master/MiniProject2)
