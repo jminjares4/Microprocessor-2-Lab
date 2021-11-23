@@ -1,4 +1,4 @@
-# Lab 1
+# Lab 1B
 ## **FreeRTOS: Queue**
 ### **Goals**
 ***
@@ -11,9 +11,63 @@
 ***
 * Modify the code by sending structures on a queue. +10
 
-### **Modify the following code**
-***
-<img width="479" alt="lab1b_1" src="https://user-images.githubusercontent.com/60948298/134446447-cbf6532a-5cdb-4f2e-916e-52147119fcbf.png">
+### **Template Code**
 
-<img width="480" alt="lab1b_2" src="https://user-images.githubusercontent.com/60948298/134446451-ea63b934-f715-40e6-9c45-9b1c061c486d.png">
-
+~~~c
+#include <stdio.h>
+#include "sdkconfig.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+QueueHandle_t xQueue;
+int main(void)
+{
+    xQueue = xQueueCreate(5, sizeof(int32_t));
+    if (xQueue != NULL)
+    {
+        xTaskCreate(vSenderTask, "Sender1", 1000, (void *)10, 1, NULL);
+        // Sender2 here.
+        xTaskCreate(vReceiverTask, "Receiver", 1000, NULL, 2, NULL);
+        vTaskStartScheduler();
+    }
+    else
+    {
+    }
+}
+static void vSenderTask(void *pvParameters)
+{
+    int32_t lValueToSend;
+    BaseType_t xStatus;
+    lValueToSend = (int32_t)pvParameters;
+    for (;;)
+    {
+        xStatus = xQueueSendToBack(xQueue, &lValueToSend, 0);
+        if (xStatus != pdPASS)
+        {
+            vPrintString("Could not send to the queue.\r\n");
+        }
+    }
+}
+static void vReceiverTask(void *pvParameters)
+{
+    int32_t lReceivedValue;
+    BaseType_t xStatus;
+    const TickType_t xTicksToWait = pdMS_TO_TICKS(100);
+    for (;;)
+    {
+        if (uxQueueMessagesWaiting(xQueue) != 0)
+        {
+            vPrintString("Queue should have been empty!\r\n");
+        }
+        xStatus = xQueueReceive(xQueue, &lReceivedValue, xTicksToWait);
+        if (xStatus == pdPASS)
+        {
+            vPrintStringAndNumber("Received = ", lReceivedValue);
+        }
+        else
+        {
+            vPrintString("Could not receive from the queue.\r\n");
+        }
+    }
+}
+~~~

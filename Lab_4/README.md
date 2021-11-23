@@ -10,7 +10,41 @@
 ***
 * Make the sine wave have a 10 hz frequency. + 10
 
-### **Modify the following code**
-***
-
-<img width="497" alt="Lab 4 " src="https://user-images.githubusercontent.com/60948298/136827840-c0067dcd-52e5-425c-b468-66d83a4ed341.png">
+### **Template Code**
+~~~c
+#include <stdio.h>
+#include <math.h>
+#include "sdkconfig.h"
+#include <driver/dac.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+void createTriangleWave(void *pvParameter)
+{
+    dac_output_enable(DAC_CHANNEL_1);
+    static int i = 0;
+    while (1)
+    {
+        dac_output_voltage(DAC_CHANNEL_1, i);
+        // compute trialgular waveform value
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+void createSineWave(void *pvParameter)
+{
+    dac_output_enable(DAC_CHANNEL_2);
+    static int i = 0;
+    float val;
+    int n;
+    while (1)
+    {
+        // compute sine waveform value
+        dac_output_voltage(DAC_CHANNEL_2, n);
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+void app_main()
+{
+    xTaskCreate(&createTriangleWave, "createTriangleWave", 4096, NULL, 5, NULL);
+    xTaskCreate(&createSineWave, "createSineWave", 4096, NULL, 5, NULL);
+}
+~~~

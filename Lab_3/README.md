@@ -11,8 +11,59 @@
 ***
 * Add a port interrupt to stop and start the PWM signal.+10
 
-### **Modify the following code**
-***
-<img width="428" alt="lab3 " src="https://user-images.githubusercontent.com/60948298/136305157-b2b8c718-20e2-4f60-a98a-3fe085de3306.png">
-
-<img width="428" alt="lab3_1" src="https://user-images.githubusercontent.com/60948298/136305166-88af8401-2f00-4d32-9945-55127a2487c4.png">
+### **Template Code**
+~~~c
+#include <stdio.h>
+#include "sdkconfig.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+#include <driver/ledc.h>
+#include <driver/adc.h>
+static xQueueHandle duty_queue = NULL;
+void ADCtask(void *pvParameter)
+{
+    while (1)
+    {
+        vTaskDelay(100 / portTICK_PERIOD_MS);
+    }
+}
+void PWMtask(void *pvParameter)
+{
+    while (1)
+    {
+        ledc_set_duty();
+        ledc_update_duty();
+    }
+}
+void setADC()
+{
+    adc1_config_width();
+    adc1_config_channel_atten(, );
+}
+void setPWM()
+{
+    ledc_timer_config_t timerConfig;
+    timerConfig.duty_resolution = ;
+    timerConfig.timer_num = ;
+    timerConfig.freq_hz = ;
+    timerConfig.speed_mode = ;
+    ledc_timer_config(&timerConfig);
+    ledc_channel_config_t tChaConfig;
+    tChaConfig.gpio_num = ;
+    tChaConfig.speed_mode = ;
+    tChaConfig.channel = ;
+    tChaConfig.intr_type = ;
+    tChaConfig.timer_sel = ;
+    tChaConfig.duty = ;
+    ledc_channel_config(&tChaConfig);
+}
+void app_main()
+{
+    setADC();
+    setPWM();
+    duty_queue = xQueueCreate(10, sizeof(int));
+    xTaskCreate(&ADCtask, "ADCtask", 2048, NULL, 5, NULL);
+    xTaskCreate(&PWMtask, "PWMtask", 2048, NULL, 5, NULL);
+}
+~~~

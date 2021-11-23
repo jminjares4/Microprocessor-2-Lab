@@ -10,7 +10,29 @@
 ***
 * Modify the code so that you only use the delay function in one of the tasks.+10
 
-### **Modify the following code**
-***
-<img width="257" alt="lab 1 code " src="https://user-images.githubusercontent.com/60948298/132753274-8a28c676-6b40-4dd8-ab20-e8fb9d1ce4e1.png">
+### **Template Code**
+~~~c
+#include <stdio.h>
+#include "sdkconfig.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/semphr.h"
+SemaphoreHandle_t xSemaphore = NULL;
+void task1(void *pvParameter)
+{
+    while (1)
+    {
+        printf("Task 1\n");
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+    }
+}
+void app_main()
+{
+    xSemaphore = xSemaphoreCreateBinary();
+    xTaskCreate(&task1, "task1", 4096, NULL, 5, NULL);
+    xTaskCreate(&task2, "task2", 4096, NULL, 5, NULL);
+    xTaskCreate(&task3, "task3", 4096, NULL, 6, NULL);
+    xTaskCreate(&task4, "task4", 4096, NULL, 7, NULL);
+}
 
+~~~
