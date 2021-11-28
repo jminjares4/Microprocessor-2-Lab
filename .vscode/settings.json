@@ -1,3 +1,19 @@
 {
-  "C_Cpp.intelliSenseEngine": "Tag Parser"
+  "C_Cpp.intelliSenseEngine": "Tag Parser",
+  "files.associations": {
+    "accelerometer.h": "c",
+    "sdkconfig.h": "c",
+    "freertos.h": "c",
+    "led.h": "c",
+    "mcpwm.h": "c",
+    "mcpwm_types.h": "c",
+    "esp_intr_alloc.h": "c",
+    "periph_ctrl.h": "c",
+    "adc.h": "c",
+    "ledc.h": "c",
+    "servo.h": "c",
+    "complex": "c",
+    "motion_sensor.h": "c",
+    "thread": "c"
+  }
 }

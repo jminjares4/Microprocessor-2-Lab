@@ -125,3 +125,19 @@ void app_main(void){
    /* Create task that will be trigger by interrupt */
    xTaskCreate(&print_task, "print_task", 2048, NULL, 10, NULL);
 }
+
+
+typedef struct MotionSensor{
+    void * func;
+};
+
+MotionSensor.func = &gpioIsr;
+
+
+void gpioIsr();
+
+
+
+extern gpioIsr(){
+    
+}
