@@ -1,0 +1,5 @@
+# Avoid build to be added
+build/
+
+# Remove any instance of vscode
+.vscode/
